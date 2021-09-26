@@ -1,0 +1,139 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> create database Cinemas;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| cinemas            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.01 sec)
+
+mysql> use Cinemas
+Database changed
+mysql> create table Movies(
+    -> Name VARCHAR(30),
+    -> Actor VARCHAR(30),
+    -> Actress VARCHAR(30),
+    -> Director VARCHAR(30),
+    -> Year_of_release INT NOT NULL,
+    -> PRIMARY KEY(Name)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql>  INSERT INTO Movies VALUES(
+    -> 'Drishyam',
+    -> 'Mohanlal',
+    -> 'Meena',
+    -> 'Jeethu Joseph',
+    -> 2013
+    -> );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Movies VALUES(
+    -> 'Kaanekaane',
+    -> 'Tovino Thomas',
+    -> 'Aishwarya Lekshmi',
+    -> 'Manu Ashokan',
+    -> 2021
+    -> );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Movies VALUES(
+    -> 'INTERSTELLAR',
+    -> 'Matthew McConaughey',
+    -> 'Anne Hathaway',
+    -> 'Christopher Nolan',
+    -> 2014
+    -> );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Movies VALUES(
+    -> 'Dear Zindagi',
+    -> 'Shah Rukh Khan',
+    -> 'Alia Bhatt',
+    -> 'Gauri Shinde',
+    -> 2016
+    -> );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Movies VALUES(
+    -> 'Ae Dil Hai Mushkil',
+    -> 'Ranbir Kapoor',
+    -> 'Anushka sharma',
+    -> 'Karan Johar',
+    -> 2016
+    -> );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Movies VALUES(
+    -> 'Thamasha',
+    -> 'Ranbir Kapoor',
+    -> 'Deepika Padukone',
+    -> 'Imtiaz Ali',
+    -> 2015
+    -> );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Movies VALUES(
+    -> 'PK',
+    -> 'Aamir Khan',
+    -> 'Anushka Sharma',
+    -> 'Rajkumar Hirani',
+    -> 2014
+    -> );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM Movies;
++--------------------+---------------------+-------------------+-------------------+-----------------+
+| Name               | Actor               | Actress           | Director          | Year_of_release |
++--------------------+---------------------+-------------------+-------------------+-----------------+
+| Ae Dil Hai Mushkil | Ranbir Kapoor       | Anushka sharma    | Karan Johar       |            2016 |
+| Dear Zindagi       | Shah Rukh Khan      | Alia Bhatt        | Gauri Shinde      |            2016 |
+| Drishyam           | Mohanlal            | Meena             | Jeethu Joseph     |            2013 |
+| INTERSTELLAR       | Matthew McConaughey | Anne Hathaway     | Christopher Nolan |            2014 |
+| Kaanekaane         | Tovino Thomas       | Aishwarya Lekshmi | Manu Ashokan      |            2021 |
+| PK                 | Aamir Khan          | Anushka Sharma    | Rajkumar Hirani   |            2014 |
+| Thamasha           | Ranbir Kapoor       | Deepika Padukone  | Imtiaz Ali        |            2015 |
++--------------------+---------------------+-------------------+-------------------+-----------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT Name,Actor FROM Movies ORDER BY Actor;
++--------------------+---------------------+
+| Name               | Actor               |
++--------------------+---------------------+
+| PK                 | Aamir Khan          |
+| INTERSTELLAR       | Matthew McConaughey |
+| Drishyam           | Mohanlal            |
+| Ae Dil Hai Mushkil | Ranbir Kapoor       |
+| Thamasha           | Ranbir Kapoor       |
+| Dear Zindagi       | Shah Rukh Khan      |
+| Kaanekaane         | Tovino Thomas       |
++--------------------+---------------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT Name FROM Movies WHERE Actor="Ranbir Kapoor";
++--------------------+
+| Name               |
++--------------------+
+| Ae Dil Hai Mushkil |
+| Thamasha           |
++--------------------+
+2 rows in set (0.00 sec)
+
+mysql>
